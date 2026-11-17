@@ -18,26 +18,15 @@ except (AttributeError, ValueError):
 # Permitir ejecutar desde cualquier directorio
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from paises import (
-    cargar_paises,
-    guardar_paises,
-    crear_pais,
-    agregar_pais,
-    actualizar_pais,
-    buscar_pais_por_nombre,
-    filtrar_por_continente,
-    filtrar_por_rango_poblacion,
-    filtrar_por_rango_superficie,
-    ordenar_paises,
-    pais_mayor_poblacion,
-    pais_menor_poblacion,
-    promedio_poblacion,
-    promedio_superficie,
-    cantidad_por_continente,
-    mostrar_lista,
-    validar_no_vacio,
-    validar_entero_positivo,
-)
+# Cargar paises.py de forma robusta (independiente del directorio de trabajo)
+import importlib.util as _ilu
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+_paises_spec = _ilu.spec_from_file_location("paises", os.path.join(_BASE_DIR, "paises.py"))
+_paises_mod = _ilu.module_from_spec(_paises_spec)
+_paises_spec.loader.exec_module(_paises_mod)
+for _name in dir(_paises_mod):
+    if not _name.startswith("_"):
+        globals()[_name] = getattr(_paises_mod, _name)
 
 RUTA_CSV = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "paises.csv")
 
