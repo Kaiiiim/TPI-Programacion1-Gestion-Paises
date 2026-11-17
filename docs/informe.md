@@ -224,5 +224,5 @@ proyectos más complejos.
 
 ## 11. Enlaces del Proyecto
 
-- Repositorio en GitHub: [COMPLETAR: Link al repo]
+- Repositorio en GitHub: https://github.com/Kaiiiim/TPI-Programacion1-Gestion-Paises
 - Video demostrativo: [COMPLETAR: Link al video]
