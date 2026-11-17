@@ -6,40 +6,6 @@
 
 ---
 
-## Carátula
-
-- Institución: Universidad Tecnológica Nacional (UTN) - Facultad Regional Mendoza
-- Carrera: Tecnicatura Universitaria en Programación a Distancia
-- Materia: Programación 1
-- Título: Gestión de Datos de Países en Python: filtros, ordenamientos y estadísticas
-- Integrantes: Kevin Ibáñez - Selene Carrascosa
-- Fecha de entrega: 17 de noviembre de 2026
-
----
-
-## Índice
-
-1. Objetivo
-2. Dominio del problema
-3. Marco Teórico
-   3.1 Listas
-   3.2 Diccionarios
-   3.3 Funciones
-   3.4 Estructuras condicionales y repetitivas
-   3.5 Archivos CSV con codificación UTF-8
-   3.6 Ordenamientos sin modificar la lista original
-   3.7 Estadísticas básicas
-4. Requerimientos técnicos
-5. Diseño y arquitectura
-6. Decisiones técnicas
-7. Validaciones y manejo de errores
-8. Funcionalidades implementadas
-9. Dificultades y conclusiones
-10. Bibliografía / Webgrafía
-11. Enlaces del Proyecto
-
----
-
 ## 1. Objetivo
 
 El objetivo de este trabajo es desarrollar una aplicación en Python que permita gestionar
@@ -149,14 +115,14 @@ interactivo y se encarga de pedir datos al usuario, mostrar resultados y llamar 
 funciones del módulo de lógica. Esta separación nos permite mantener el código ordenado
 y facilita futuras modificaciones.
 
-[INSERTAR IMAGEN: diagrama_flujo.png]
+
 
 El flujo general del programa es: al iniciar se carga el CSV en una lista de países,
 luego se muestra un menú con las opciones disponibles y, según la elección del
 usuario, se realizan las operaciones correspondientes. Los cambios se guardan en el
 CSV cada vez que se agrega o actualiza un país.
 
-[INSERTAR CAPTURAS DE CONSOLA]
+
 
 ## 6. Decisiones técnicas
 
