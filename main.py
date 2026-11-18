@@ -37,7 +37,20 @@ for _name in dir(_paises_mod):
     if not _name.startswith("_"):
         globals()[_name] = getattr(_paises_mod, _name)
 
-RUTA_CSV = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "paises.csv")
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RUTA_CSV = os.path.join(_BASE_DIR, "data", "paises.csv")
+
+# Fallback: si el CSV no esta disponible (ej. se ejecuto solo main.py desde un zip),
+# se usa una copia embebida del dataset.
+if not os.path.exists(RUTA_CSV):
+    import base64 as _b64_csv
+    import tempfile as _tmp_csv
+    _csv_content = _b64_csv.b64decode("bm9tYnJlLHBvYmxhY2lvbixzdXBlcmZpY2llLGNvbnRpbmVudGUKQXJnZW50aW5hLDQ1Mzc2NzYzLDI3ODA0MDAsQW3DqXJpY2EKQnJhc2lsLDIxMzk5MzQzNyw4NTE1NzY3LEFtw6lyaWNhCkphcMOzbiwxMjU4MDAwMDAsMzc3OTc1LEFzaWEKQWxlbWFuaWEsODMxNDkzMDAsMzU3MDIyLEV1cm9wYQpDYW5hZMOhLDM4MDA1MjM4LDk5ODQ2NzAsQW3DqXJpY2EKRnJhbmNpYSw2NzM5MDAwMCw1NTE2OTUsRXVyb3BhCkluZGlhLDEzODAwMDQzODUsMzI4NzI2MyxBc2lhCkF1c3RyYWxpYSwyNTY4NzA0MSw3NjkyMDI0LE9jZWFuw61hCk5pZ2VyaWEsMjA2MTM5NTg5LDkyMzc2OCzDgWZyaWNhCkVzcGHDsWEsNDczNTE1NjcsNTA1OTkyLEV1cm9wYQo=").decode("utf-8")
+    _tmp_csv_path = os.path.join(_tmp_csv.gettempdir(), "paises.csv")
+    if not os.path.exists(_tmp_csv_path):
+        with open(_tmp_csv_path, "w", encoding="utf-8", newline="") as _f:
+            _f.write(_csv_content)
+    RUTA_CSV = _tmp_csv_path
 
 
 def leer_texto(mensaje: str) -> str:
