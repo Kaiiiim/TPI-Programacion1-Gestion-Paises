@@ -134,7 +134,7 @@ La documentación académica y técnica se encuentra en `informe.pdf` (raíz del
 
 - Repositorio en GitHub: https://github.com/Kaiiiim/TPI-Programacion1-Gestion-Paises
 - Documentación en PDF: `./informe.pdf`
-- Video demostrativo: [COMPLETAR: Link público de YouTube/Drive]
+- Video demostrativo: https://youtu.be/LXkrTPId-Gk?si=4mfgvFaRr5QaUXyl
 
 ## Licencia
 
